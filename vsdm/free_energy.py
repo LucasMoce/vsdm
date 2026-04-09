@@ -1,0 +1,3 @@
+"""
+vsdm.free_energy
+"""

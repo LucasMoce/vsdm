@@ -1,0 +1,38 @@
+# vsdm — configuração padrão
+
+system:
+  forcefield: amber14-all        # campo de força da proteína
+  water_model: tip3p             # modelo de água
+  box_type: cubic
+  box_padding: 1.0               # nm
+  ions: NaCl
+  ion_concentration: 0.15        # M
+
+ligand:
+  forcefield: gaff2              # gaff2 (acpype) ou openff (se disponível)
+  charge_method: bcc             # bcc (AM1-BCC) ou resp
+
+membrane:
+  enabled: false
+  lipid_composition: "POPC:100"
+  insertion_method: packmol-memgen
+
+minimization:
+  tolerance: 10.0                # kJ/mol/nm
+  max_steps: 10000
+
+equilibration:
+  temperature: 300.0             # K
+  pressure: 1.0                  # bar
+  nvt_time: 0.1                  # ns
+  npt_time: 1.0                  # ns
+  restraint_force: 1000.0        # kJ/mol/nm^2
+
+simulation:
+  timestep: 2.0                  # fs
+  temperature: 300.0
+  pressure: 1.0
+  reporter_interval: 10000       # steps
+
+analysis:
+  default_selection: "protein"
